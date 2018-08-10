@@ -124,7 +124,7 @@ class OIDConnectSocialiteProvider extends AbstractProvider implements ProviderIn
          */
         $plainToken = $this->parser->parse($token);
 
-        $client = new \GuzzleHttp\Client(['base_uri' => 'https://oidc.test.surfconext.nl']);
+        $client = new \GuzzleHttp\Client(['base_uri' => env('SURFCONEXT_BASE_URI')]);
 
         $res = $client->request('GET', '/userinfo', [
             'allow_redirects' => true,
