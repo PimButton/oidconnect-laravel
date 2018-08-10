@@ -107,7 +107,7 @@ class OIDConnectSocialiteProvider extends AbstractProvider implements ProviderIn
             'first_name' => $user['given_name'],
             'last_name' => $user['family_name'],
             'name' => $user['name'],
-            'email' => $user['email'],
+            'email' => ( isset( $user['email'] ) ? $user['email'] : '' ),
         ]);
     }
 
