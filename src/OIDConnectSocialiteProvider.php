@@ -86,7 +86,7 @@ class OIDConnectSocialiteProvider extends AbstractProvider implements ProviderIn
             throw new TokenRequestException($response['error']);
         }
 
-        $token = $response['id_token'];
+        $token = $response['access_token'];
 
         $user = $this->mapUserToObject($this->getUserByToken($token));
 
@@ -126,7 +126,7 @@ class OIDConnectSocialiteProvider extends AbstractProvider implements ProviderIn
 
         $client = new \GuzzleHttp\Client(['base_uri' => env('SURFCONEXT_BASE_URI')]);
 
-        $res = $client->request('GET', '/userinfo', [
+        $res = $client->request('GET', ' userinfo', [
             'allow_redirects' => true,
             'headers' => [
                 'Authorization' => 'Bearer ' . $token
