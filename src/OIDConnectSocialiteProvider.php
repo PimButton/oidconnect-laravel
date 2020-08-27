@@ -126,7 +126,7 @@ class OIDConnectSocialiteProvider extends AbstractProvider implements ProviderIn
 
         $client = new \GuzzleHttp\Client(['base_uri' => env('SURFCONEXT_BASE_URI')]);
 
-        $res = $client->request('GET', ' userinfo', [
+        $res = $client->request('GET', 'userinfo', [
             'allow_redirects' => true,
             'headers' => [
                 'Authorization' => 'Bearer ' . $token
